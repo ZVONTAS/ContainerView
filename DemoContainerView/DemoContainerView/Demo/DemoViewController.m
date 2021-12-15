@@ -497,7 +497,7 @@
     
     [self containerMoveCustomPosition:top moveType:ContainerMoveTypeTop animated:YES];
     
-    self.containerTop = top - IPHONE_X_PADDING_TOP;
+    self.containerTop = top;
     self.containerLabelValueTop.text = SFMT(@"%.0f y", top);
 }
 
@@ -506,7 +506,7 @@
     
     [self containerMoveCustomPosition: (SCREEN_HEIGHT - bottom) moveType:ContainerMoveTypeBottom animated:NO];
     
-    self.containerBottom = bottom - IPHONE_X_PADDING_BOTTOM;
+    self.containerBottom = bottom;
     self.containerLabelValueBottom.text = SFMT(@"%.0f y", bottom);
 }
 

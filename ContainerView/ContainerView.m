@@ -78,7 +78,7 @@
 //    }
     
     
-    self.transform = CGAffineTransformMakeTranslation( 0, self.containerBottom - IPHONE_X_PADDING_BOTTOM);
+    self.transform = CGAffineTransformMakeTranslation(0, self.containerBottom);
     self.containerPosition = ContainerMoveTypeBottom;
     
     if(!_visualEffectView) {
@@ -186,7 +186,7 @@
         //[btn addGestureRecognizer: [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(containerBottomButtonAction)]];
         //[btn addGestureRecognizer: [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(containerBottomButtonAction)]];
         
-        btn.frame = CGRectMake( 0, 0, SCREEN_WIDTH, (SCREEN_HEIGHT - self.containerBottom + IPHONE_X_PADDING_BOTTOM) );
+        btn.frame = CGRectMake( 0, 0, SCREEN_WIDTH, (SCREEN_HEIGHT - self.containerBottom) );
         btn.backgroundColor = CLR_COLOR;
         _bottomButtonToMoveTop = btn;
     }
@@ -207,7 +207,7 @@
         self.frame = CGRectMake( 0 , self.frame.origin.y, size.width, size.height + 50);
     } else {
         self.portrait = NO;
-        self.frame = CGRectMake( (IS_IPHONE_X ? 44 :15), self.frame.origin.y, (size.height - 20), size.height + 50);
+        self.frame = CGRectMake( (15), self.frame.origin.y, (size.height - 20), size.height + 50);
     }
 }
 
@@ -339,8 +339,6 @@
     if(self.scrollView) {
         CGFloat headerHeight = 0;
         CGFloat top = self.containerTop;
-        CGFloat iphnXpaddingTop     = IPHONE_X_PADDING_TOP;
-        CGFloat iphnXpaddingBottom  = IPHONE_X_PADDING_BOTTOM;
         CGFloat scrollIndicatorInsetsBottom = 0;
         
         if(_headerView) {
@@ -353,11 +351,11 @@
         }
         
         CGFloat width = (self.portrait) ?(SCREEN_WIDTH) :(SCREEN_HEIGHT - 20);
-        CGFloat height = (SCREEN_HEIGHT + containerPositionBottom - (top + headerHeight + iphnXpaddingTop));
+        CGFloat height = (SCREEN_HEIGHT + containerPositionBottom - (top + headerHeight));
         
         self.scrollView.frame = CGRectMake(self.scrollView.frame.origin.x, headerHeight, width, height);
         
-        self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake( scrollIndicatorInsetsBottom, 0, (self.portrait) ? iphnXpaddingBottom : 0 , 0);
+        self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake( scrollIndicatorInsetsBottom, 0, 0, 0);
     }
 }
 
@@ -494,9 +492,9 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
     CGFloat position = 0;
     
     switch (moveType) {
-        case ContainerMoveTypeTop:      position = self.containerTop + IPHONE_X_PADDING_TOP; break;
+        case ContainerMoveTypeTop:      position = self.containerTop; break;
         case ContainerMoveTypeMiddle:   position = self.containerMiddle; break;
-        case ContainerMoveTypeBottom:   position = self.containerBottom - IPHONE_X_PADDING_BOTTOM; break;
+        case ContainerMoveTypeBottom:   position = self.containerBottom; break;
         case ContainerMoveTypeHide:     position = SCREEN_HEIGHT; break;
     }
     

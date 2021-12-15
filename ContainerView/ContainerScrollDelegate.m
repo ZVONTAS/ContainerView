@@ -76,9 +76,8 @@
             
             CGFloat headerHeight = (self.containerView.headerView) ?self.containerView.headerView.frame.size.height :0;
             CGFloat top = (self.containerView.containerTop == 0) ? CUSTOM_TOP : self.containerView.containerTop;
-            CGFloat iphnX = IPHONE_X_PADDING_TOP;
             
-            CGFloat height = (SCREEN_HEIGHT - (top + headerHeight + iphnX ));
+            CGFloat height = (SCREEN_HEIGHT - (top + headerHeight));
             
             if(scrollView.frame.size.height != height) {
                 

@@ -35,21 +35,6 @@
 
 #define SCREEN_PORTRAIT             (SCREEN_WIDTH < SCREEN_HEIGHT)
 
-/// DEVICE
-#define IS_IPAD                     (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-#define IS_IPHONE                   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define IS_RETINA                   ([[UIScreen mainScreen] scale] >= 2.0)
-
-#define IS_IPHONE_4                 (IS_IPHONE && SCREEN_MAX_LENGTH <  568.0)
-#define IS_IPHONE_5                 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
-#define IS_IPHONE_6                 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
-#define IS_IPHONE_6P                (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
-#define IS_IPHONE_X                 (IS_IPHONE && SCREEN_MAX_LENGTH == 812.0)
-#define IS_BIG_IPHONE               (IS_IPHONE && SCREEN_MAX_LENGTH >  568.0)
-
-#define IPHONE_X_PADDING_TOP        (IS_IPHONE_X ? 24 :0)
-#define IPHONE_X_PADDING_BOTTOM     (IS_IPHONE_X ? 34 :0)
-
 /// COLOR
 #define RGBA(r,g,b,a)               ([UIColor colorWithRed:(CGFloat)r / 255.0 green:(CGFloat)g / 255.0 blue:(CGFloat)b / 255.0 alpha:(CGFloat)a])
 #define RGB(r,g,b)                  RGBA(r,g,b, 1.0)
@@ -101,6 +86,6 @@
 
 #define CUSTOM_HEADER_HEIGHT        64.0
 
-#define FRAME_SCROLLVIEW            CGRectMake ( 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT -CUSTOM_TOP -IPHONE_X_PADDING_TOP )
+#define FRAME_SCROLLVIEW            CGRectMake ( 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT -CUSTOM_TOP)
 
 
